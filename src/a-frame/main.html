@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>TEU Style Container</title>
+    <meta name="description" content="A-Frame Container Example">
+    <script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-inspector@1.6.0/dist/aframe-inspector.min.js"></script>
+  </head>
+  <body>
+    <!-- See view-source:https://aframe.io/aframe-inspector/examples/  -->
+    <a-scene scale="1 1 1">
+
+      <a-camera position="0 1.8 6" wasd-controls="fly: true"></a-camera>
+
+      <a-sky color="#000000"></a-sky>
+
+      <!-- Ground plane -->
+      <a-plane rotation="-90 0 0" width="10" height="10" color="brown"></a-plane>
+      <!--  material="opacity: 1; wireframe: true" -->
+
+      <!-- Move the thing to some offset so we can position everything else as values relative to 0,0,0 -- no negative values -->
+      <a-entity id="container-wrapper" position="1.22 1.295 -3.05" visible="false">
+        <a-box position="0 0 0" width="2.44" height="2.59" depth="6.1" color="#999999"></a-box>
+      </a-entity>
+
+      <!-- Container Floor -->
+      <a-box id="floor" position="0 0 0" width="2.44" height="0.05" depth="6.1" color="#101010"></a-box>
+
+      <!-- Container Left Wall -->
+      <a-box id="wall1" position="-1.239 1.229 0" width="0.05" height="2.59" depth="6.1" color="#101010" material="opacity: 0.90"></a-box>
+
+      <!-- Container Right Wall -->
+      <a-box id="wall2" position="1.195 1.229 0" width="0.05" height="2.59" depth="6.1" color="#101010" material="opacity: 0.90"></a-box>
+
+      <!-- Container Rear Wall -->
+      <a-box id="wall3" position="0 1.229 -3.050" width="2.44" height="2.59" depth="0.05" color="#101010" material="opacity: 0.90"></a-box>
+      <!-- <a-box id="wall3" position="-0.02194"></a-box> -->
+
+      <!-- door1 (left) -->
+      <a-box id="door1" position="-0.599 1.295 3.050" width="1.22" height="2.59" depth="0.05" color="#111111" material="opacity: 0.25" visible="false"></a-box>
+      <!-- door2 shut -->
+      <a-box id="door2" position="0.601 1.295 3.050" width="1.22" height="2.59" depth="0.05" color="#111111" material="opacity: 0.25" visible="false"></a-box>
+      <!-- door2 open -->
+      <!-- <a-box id="door2" position="0.891 1.305 3.34" width="1.22" height="2.59" depth="0.05" color="#111111" material="width: 513.01" geometry="width: 0.94" rotation="0.2 45.04 -0.4"></a-box> -->
+
+      <!-- X = (2.44 / 2) - (0.50 / 2) -->
+      <!-- Path on Right -->
+      <!-- <a-box id="path" position="0.97 0.05 0" width="0.50" height="0.05" depth="6.1" color="#069420"></a-box> -->
+
+      <!-- Path in Center -->
+      <a-box id="path" position="0 0.05 0" width="0.50" height="0.05" depth="6.1" color="#069420"></a-box>
+
+      <!-- Tables -->
+      <a-entity id="table-group-1">
+        <!-- X = (2.44 / 2) - (0.97 / 2) -->
+        <a-box id="tg1-t1" position="-0.735 0.50 0" width="0.97" height="0.10" depth="6.1" color="orange"></a-box>
+        <a-box id="tg1-t2" position=" 0.735 0.50 0" width="0.97" height="0.10" depth="6.1" color="orange"></a-box>
+
+        <!-- <a-box id="tg1-t3" position="-0.735 1.22 0" width="0.97" height="0.10" depth="6.1" color="orange"></a-box>
+        <a-box id="tg1-t4" position=" 0.735 1.22 0" width="0.97" height="0.10" depth="6.1" color="orange"></a-box> -->
+
+      </a-entity>
+
+
+      <!-- LampGroup1 -->
+      <a-entity id="lamp-group-1" visible="false">
+        <a-box id="g1-lamp1" position="-0.68372 2.25 2.41016" width="1.143" height="0.090" depth="1.143" color="#ff9900"></a-box>
+        <a-box id="g1-lamp2" position="-0.68372 2.25 1.14329" width="1.143" height="0.090" depth="1.143" color="#ff9900"></a-box>
+        <a-box id="g1-lamp3" position="-0.68372 2.25 -0.11049" width="1.143" height="0.090" depth="1.143" color="#ff9900"></a-box>
+        <a-box id="g1-lamp4" position="-0.68372 2.25 -1.42071" width="1.143" height="0.090" depth="1.143" color="#ff9900"></a-box>
+        <a-box id="g1-lamp5" position="0.500 2.250 1.12854" width="1.143" height="0.090" depth="1.143" color="#ff9900"></a-box>
+        <a-box id="g1-lamp6" position="0.500 2.250 2.400" width="1.143" height="0.090" depth="1.143" color="#ff9900"></a-box>
+        <a-box id="g1-lamp7" position="0.5 2.25 -0.10697" width="1.143" height="0.090" depth="1.143" color="#ff9900"></a-box>
+        <a-box id="g1-lamp8" position="0.5 2.25 -1.42071" width="1.143" height="0.090" depth="1.143" color="#ff9900"></a-box>
+      </a-entity>
+
+      <!-- Lamp Group2 -->
+      <!-- This Box is the Size of the Light Area -->
+      <a-entity id="lamp-group-2" position="0 1.4 0" visible="true">
+        <!-- X = (2.44 / 2) - (0.60 / 2) - 0.20 -->
+        <!-- Y = Set By Wrapper -->
+        <!-- Z = (6.10 / 2) - (0.90 / 2) - 0.20 -->
+        <a-box id="lg2-l1-f" position="-0.72     0 2.41" width="0.174" height="0.090" depth="0.286" color="#ff00aa"></a-box>
+        <a-box id="lg2-l1-a" position="-0.72 -0.85 2.41" width="0.60" height="0.090" depth="0.90" color="yellow"></a-box>
+        <a-box id="lg2-l2-a" position="-0.72 -0.85 1.14329" width="0.60" height="0.090" depth="0.90" color="yellow"></a-box>
+        <a-box id="lg2-l3-a" position="-0.72 -0.85 -0.11049" width="0.60" height="0.090" depth="0.90" color="yellow"></a-box>
+        <a-box id="lg2-l4-a" position="-0.72 -0.85 -1.42071" width="0.60" height="0.090" depth="0.90" color="yellow"></a-box>
+        <a-box id="lg2-l5-a" position=" 0.50 -0.85 1.12854" width="0.60" height="0.090" depth="0.90" color="yellow"></a-box>
+        <a-box id="lg2-l6-a" position=" 0.50 -0.85 2.400" width="0.60" height="0.090" depth="0.90" color="yellow"></a-box>
+        <a-box id="lg2-l7-a" position=" 0.50 -0.85 -0.10697" width="0.60" height="0.090" depth="0.90" color="yellow"></a-box>
+        <a-box id="lg2-l8-a" position=" 0.50 -0.85 -1.42071" width="0.60" height="0.090" depth="0.90" color="yellow"></a-box>
+      </a-entity>
+
+      <!-- Window on left side -->
+      <!-- <a-box id="window0" position="-1.305 1.295 -2.439"
+        width="0.8"
+        height="1.5"
+        depth="2"
+        color="#FFFFFF99"
+        material="opacity: 0.5; transparent: true"></a-box> -->
+
+      <!-- Window on right side -->
+      <!-- <a-box id="port2" position="1.22 1.295 0" width="0.05" height="1.5" depth="2" color=""></a-box> -->
+
+      <!-- Camera -->
+      <!-- <a-camera position="0 1.8 10" wasd-controls="fly:true"></a-camera> -->
+
+      <!-- Fan Bank -->
+      <a-entity id="fan-group-1" position="0 2.25 -3.050" rotation="-90">
+        <a-cylinder id="fan1" position=" 1.00 0 0" color="#0000cc" height="0.200" radius="0.100"></a-cylinder>
+        <a-cylinder id="fan2" position=" 0.75 0 0" color="#0000cc" height="0.200" radius="0.100"></a-cylinder>
+        <a-cylinder id="fan3" position=" 0.50 0 0" color="#0000cc" height="0.200" radius="0.100"></a-cylinder>
+        <a-cylinder id="fan4" position=" 0.25 0 0" color="#0000cc" height="0.200" radius="0.100"></a-cylinder>
+        <a-cylinder id="fan5" position=" 0.00 0 0" color="#0000cc" height="0.200" radius="0.100"></a-cylinder>
+        <a-cylinder id="fan6" position="-0.25 0 0" color="#0000cc" height="0.200" radius="0.100"></a-cylinder>
+        <a-cylinder id="fan7" position="-0.50 0 0" color="#0000cc" height="0.200" radius="0.100"></a-cylinder>
+        <a-cylinder id="fan8" position="-0.75 0 0" color="#0000cc" height="0.200" radius="0.100"></a-cylinder>
+        <a-cylinder id="fan9" position="-1.00 0 0" color="#0000cc" height="0.200" radius="0.100"></a-cylinder>
+        <a-cylinder id="fanA" position="-1.25 0 0" color="#0000cc" height="0.200" radius="0.100"></a-cylinder>
+      </a-entity>
+
+    </a-scene>
+  </body>
+</html>
