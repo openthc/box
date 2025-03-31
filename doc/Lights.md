@@ -23,7 +23,8 @@ This one would need a Power Driver.
 It provides lighting in a 90x60cm area (0.54m2).
 The container has 14m2 (2.4*6.1) so we need roughly 28 of these lamps to cover the area.
 
-The total Power draw would be 3360W (28*120W)
+The total Power draw would be 3360W (28*120W) and 70A (3360W/48V)
+
 
 ### Some Power Maths
 

@@ -5,11 +5,11 @@ Box is powered by a 48VDC rail that drives all the equipment.
 
 ```mermaid
 flowchart TD
-    P0[Solar] --> MPTT
-    MPTT --> B0
+    P0[Solar] --> MPPT
+    MPPT --> B0
     P1[AC] --> Charger
     Charger --> B0[Battery]
-    MPTT --> C0
+    MPPT --> C0
     B0 --> C0[Controller/Driver]
     C0 --> L1{Load}
     L1 --> L2(Lights)
@@ -27,10 +27,10 @@ flowchart TD
 | Device | Power  | Time | Watt-Hours |
 |--------|-------:|-----:|-----------:|
 | Lights | 1200W  | 12   | 14400      |
-| Fans   | 250W   | 24   | 2400       |
+| Fans   | 250W   | 24   | 6000       |
 | Pumps  | 100W   | 2    | 200        |
 | Other  | 100W   | 24   | 2400       |
-| Total  | 1650W  |      | 19400 (20kWh)  |
+| Total  | 1650W  |      | 23000      |
 
 At 120VAC @ 13A == 1650W this could be powered from a single 20A AC circuit.
 
